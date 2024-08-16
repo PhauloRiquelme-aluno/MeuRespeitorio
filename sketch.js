@@ -5,20 +5,25 @@ function setup() {
 
 let oldx = 0;
 let oldy = 0;
-let start = false;
+let start = 0;
 
 function draw() {
   stroke(0,0,255,100);
   fill(255,random(0,25),random(0,25));
   if(mouseIsPressed)
   {
-    if (!start) {
+    if (start < 3) {
       oldx = mouseX;
       oldy = mouseY;
+      start++;
     }
-    line(mouseX,mouseY,oldx,oldy);
+    else
+      line(mouseX,mouseY,oldx,oldy);
   }
-  start = mouseIsPressed;
+  else
+  {
+    start = 0;
+  }
   oldx = mouseX;
   oldy = mouseY;
 }
