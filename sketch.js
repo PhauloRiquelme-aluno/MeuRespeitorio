@@ -12,18 +12,18 @@ function draw() {
   fill(255,random(0,25),random(0,25));
   if(mouseIsPressed)
   {
-    if (start < 3) {
-      oldx = mouseX;
-      oldy = mouseY;
-      start++;
+    if (start > 0) {
+      line(mouseX,mouseY,oldx,oldy);
     }
     else
-      line(mouseX,mouseY,oldx,oldy);
+    {
+      start++;
+    }
+    oldx = mouseX;
+    oldy = mouseY;
   }
   else
   {
     start = 0;
   }
-  oldx = mouseX;
-  oldy = mouseY;
 }
